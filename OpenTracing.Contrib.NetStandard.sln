@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29230.47
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenTracing.Contrib.NetStandard", "src\OpenTracing.Contrib.NetStandard.csproj", "{27722D17-D176-4E81-AA9B-8B6C5F0DF4F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenTracing.Contrib.NetStandard.Sample.Wpf", "sample\OpenTracing.Contrib.NetStandard.Sample.Wpf\OpenTracing.Contrib.NetStandard.Sample.Wpf.csproj", "{5B440DD6-C4EE-4125-9723-90F1F78ADAAF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{27722D17-D176-4E81-AA9B-8B6C5F0DF4F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27722D17-D176-4E81-AA9B-8B6C5F0DF4F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27722D17-D176-4E81-AA9B-8B6C5F0DF4F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27722D17-D176-4E81-AA9B-8B6C5F0DF4F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B440DD6-C4EE-4125-9723-90F1F78ADAAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B440DD6-C4EE-4125-9723-90F1F78ADAAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B440DD6-C4EE-4125-9723-90F1F78ADAAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B440DD6-C4EE-4125-9723-90F1F78ADAAF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4CCB1E5A-E2AA-46E5-BC3F-EB8654B66691}
+	EndGlobalSection
+EndGlobal
