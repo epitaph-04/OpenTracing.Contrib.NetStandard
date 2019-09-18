@@ -1,0 +1,11 @@
+pool:
+  vmImage: 'Ubuntu 18.04'
+  
+variables:
+  buildConfiguration: 'Release'
+
+steps:
+- script: chmod a+x ./build.sh
+- script: chmod a+x ./pack.sh
+- bash: ./build.sh
+- bash: ./pack.sh
