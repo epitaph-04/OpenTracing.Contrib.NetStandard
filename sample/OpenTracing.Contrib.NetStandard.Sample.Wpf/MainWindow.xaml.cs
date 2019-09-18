@@ -24,6 +24,8 @@ namespace OpenTracing.Contrib.NetStandard.Sample.Wpf
 				Task.Delay(5000).Wait();
 				HttpClient client = new HttpClient();
 				var result = client.SendAsync(new HttpRequestMessage(HttpMethod.Get, Url.Text)).Result;
+
+				this.browser.Navigate(Url.Text);
 			}
 		}
 	}

@@ -23,7 +23,7 @@ namespace Microsoft.Extensions.DependencyInjection
 		/// <summary>
 		/// Adds instrumentation for the .NET framework BCL.
 		/// </summary>
-		public static IOpenTracingBuilder AddCoreFx(this IOpenTracingBuilder builder)
+		public static IOpenTracingBuilder AddHttpClientHandler(this IOpenTracingBuilder builder)
 		{
 			if (builder == null)
 				throw new ArgumentNullException(nameof(builder));
@@ -42,7 +42,20 @@ namespace Microsoft.Extensions.DependencyInjection
 		/// <summary>
 		/// Configuration instrumentation for the .NET framework BCL.
 		/// </summary>
-		public static IOpenTracingBuilder ConfigureCoreFx(this IOpenTracingBuilder builder, Action<HttpHandlerDiagnosticOptions> options)
+		public static IOpenTracingBuilder ConfigureHttpClientHandler(this IOpenTracingBuilder builder, Action<HttpHandlerDiagnosticOptions> options)
+		{
+			if (builder == null)
+				throw new ArgumentNullException(nameof(builder));
+
+			if (options != null)
+			{
+				builder.Services.Configure(options);
+			}
+
+			return builder;
+		}
+
+		public static IOpenTracingBuilder ConfigureDesktopHttpClientHandler(this IOpenTracingBuilder builder, Action<HttpDiagnosticOptions> options)
 		{
 			if (builder == null)
 				throw new ArgumentNullException(nameof(builder));

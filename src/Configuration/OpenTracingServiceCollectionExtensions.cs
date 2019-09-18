@@ -34,7 +34,7 @@ namespace Microsoft.Extensions.DependencyInjection
 
             return services.AddOpenTracingCoreServices(otBuilder =>
             {
-                otBuilder.AddCoreFx()
+                otBuilder.AddHttpClientHandler()
 						 .AddLoggerProvider();
 
                 builder?.Invoke(otBuilder);

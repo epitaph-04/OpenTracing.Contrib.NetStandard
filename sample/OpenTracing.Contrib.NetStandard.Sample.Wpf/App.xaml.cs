@@ -4,12 +4,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using OpenTracing.Util;
 using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
+using System.Net;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace OpenTracing.Contrib.NetStandard.Sample.Wpf
@@ -38,8 +34,14 @@ namespace OpenTracing.Contrib.NetStandard.Sample.Wpf
 				return tracer;
 			});
 			serviceCollection.AddSingleton<ITracingService>(s =>
-				OpenTracingServiceCollectionExtensions.AddOpenTracing(s.GetRequiredService<ITracer>(), s.GetRequiredService<ILoggerFactory>()));
-
+				OpenTracingServiceCollectionExtensions.AddOpenTracing(
+					s.GetRequiredService<ITracer>(),
+					s.GetRequiredService<ILoggerFactory>(),
+					openTracingBuilder => 
+						openTracingBuilder.ConfigureHttpClientHandler(options => options.OperationNameResolver = httpRequest => $"{httpRequest.Method.Method}-{httpRequest.RequestUri.AbsoluteUri}")
+										  .ConfigureDesktopHttpClientHandler(options => options.OperationNameResolver = webRequest => $"{webRequest.Method}-{webRequest.RequestUri.AbsoluteUri}")
+				)
+			);
 			ServiceProvider = serviceCollection.BuildServiceProvider();
 		}
 
