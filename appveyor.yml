@@ -1,0 +1,30 @@
+version: 1.0.{build}
+image: Ubuntu1804
+configuration: Release
+platform: Any CPU
+assembly_info:
+  patch: true
+  file: '**\AssemblyInfo.*'
+  assembly_version: '{version}'
+  assembly_file_version: '{version}'
+  assembly_informational_version: '{version}'
+dotnet_csproj:
+  patch: true
+  file: '**\*.csproj'
+  version: '{version}'
+  package_version: '{version}'
+  assembly_version: '{version}'
+  file_version: '{version}'
+  informational_version: '{version}'
+build_script:
+- sh: >-
+    dotnet restore src/OpenTracing.Contrib.NetStandard.csproj
+
+    dotnet build src/OpenTracing.Contrib.NetStandard.csproj
+
+    dotnet pack src/OpenTracing.Contrib.NetStandard.csproj --no-build --output nupkgs
+test_script:
+- sh: dotnet test
+artifacts:
+- path: '**/*.nupkg'
+  name: Packages
